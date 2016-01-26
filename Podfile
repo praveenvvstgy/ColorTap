@@ -5,5 +5,6 @@ use_frameworks!
 
 target 'Color Tap' do
 pod 'RandomColorSwift'
+
 end
 

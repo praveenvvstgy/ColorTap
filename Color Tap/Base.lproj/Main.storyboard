@@ -4,12 +4,13 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Extract-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Color_Tap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -79,11 +80,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RowCell" rowHeight="87" id="vRk-Wy-mxB" customClass="CTRandomColorsTableViewCell" customModule="Color_Tap" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="87"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RowCell" rowHeight="86" id="vRk-Wy-mxB" customClass="CTRandomColorsTableViewCell" customModule="Color_Tap" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vRk-Wy-mxB" id="gkh-i9-ocw">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="86.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="85.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EWn-mX-Ibn">
@@ -119,20 +120,71 @@
                                     <outlet property="collectionView" destination="EWn-mX-Ibn" id="Fkx-k8-pKW"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SliderCell" rowHeight="48" id="TJY-jJ-c1K">
+                                <rect key="frame" x="0.0" y="114" width="320" height="48"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TJY-jJ-c1K" id="fya-3M-4MN">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="47.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tw3-ZA-cka" customClass="GradientSlider" customModule="Color_Tap" customModuleProvider="target">
+                                            <rect key="frame" x="6" y="4" width="308" height="39.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="hasRainbow" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                                    <real key="value" value="359"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="thickness">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="minColor">
+                                                    <color key="value" red="0.98594826459884644" green="0.0" blue="0.026950567960739136" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="maxColor">
+                                                    <color key="value" red="0.98594671487808228" green="0.0" blue="0.039444990456104279" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Tw3-ZA-cka" firstAttribute="leading" secondItem="fya-3M-4MN" secondAttribute="leadingMargin" id="5pQ-NS-Xh1"/>
+                                        <constraint firstItem="Tw3-ZA-cka" firstAttribute="bottom" secondItem="fya-3M-4MN" secondAttribute="bottomMargin" id="LBW-Fk-wrU"/>
+                                        <constraint firstItem="Tw3-ZA-cka" firstAttribute="trailing" secondItem="fya-3M-4MN" secondAttribute="trailingMargin" id="jLu-MR-XJ5"/>
+                                        <constraint firstItem="Tw3-ZA-cka" firstAttribute="top" secondItem="fya-3M-4MN" secondAttribute="topMargin" id="vUF-3b-NER"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="vjV-NV-vfn" id="r0i-dW-dK9"/>
                             <outlet property="delegate" destination="vjV-NV-vfn" id="KFH-nu-pfP"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Random" id="csc-7u-XkE">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="d8X-Al-54x">
-                            <color key="tintColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="refreshColors" destination="vjV-NV-vfn" id="C5Z-Zy-iML"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="refresh" id="d8X-Al-54x">
+                                <color key="tintColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="refreshColors" destination="vjV-NV-vfn" id="C5Z-Zy-iML"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="dark" id="Mp0-Fz-NrV">
+                                <color key="tintColor" red="0.1764705882" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="toggleLuminosity:" destination="vjV-NV-vfn" id="V8F-b2-tlJ"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CP1-ur-Gkg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,9 +192,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="dark" width="25" height="25"/>
         <image name="pick" width="25" height="25"/>
         <image name="pick-selected" width="25" height="25"/>
         <image name="random" width="25" height="25"/>
         <image name="random-selected" width="25" height="25"/>
+        <image name="refresh" width="25" height="25"/>
     </resources>
 </document>

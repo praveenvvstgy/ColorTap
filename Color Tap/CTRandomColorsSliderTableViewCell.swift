@@ -17,7 +17,6 @@ class CTRandomColorsTableViewCell: UITableViewCell {
             return collectionView.contentOffset.x
 
         }
-        
         set {
             collectionView.contentOffset.x = newValue
         }
@@ -30,5 +29,4 @@ class CTRandomColorsTableViewCell: UITableViewCell {
         collectionView.setContentOffset(collectionView.contentOffset, animated: true)
         collectionView.reloadData()
     }
-
 }

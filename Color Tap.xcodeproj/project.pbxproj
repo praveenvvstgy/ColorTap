@@ -14,7 +14,8 @@
 		AC63E8971C55267000D4C116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC63E8951C55267000D4C116 /* LaunchScreen.storyboard */; };
 		AC63E89F1C5658EE00D4C116 /* CTRandomColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC63E89E1C5658EE00D4C116 /* CTRandomColorsViewController.swift */; };
 		AC63E8A11C566E2B00D4C116 /* String+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC63E8A01C566E2B00D4C116 /* String+Name.swift */; };
-		AC63E8A31C56864800D4C116 /* CTRandomColorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC63E8A21C56864800D4C116 /* CTRandomColorsTableViewCell.swift */; };
+		AC63E8A71C57932000D4C116 /* CTRandomColorsSliderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC63E8A61C57932000D4C116 /* CTRandomColorsSliderTableViewCell.swift */; };
+		AC63E8A91C57989B00D4C116 /* GradientSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC63E8A81C57989B00D4C116 /* GradientSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +30,8 @@
 		AC63E8981C55267000D4C116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC63E89E1C5658EE00D4C116 /* CTRandomColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTRandomColorsViewController.swift; sourceTree = "<group>"; };
 		AC63E8A01C566E2B00D4C116 /* String+Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Name.swift"; sourceTree = "<group>"; };
-		AC63E8A21C56864800D4C116 /* CTRandomColorsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTRandomColorsTableViewCell.swift; sourceTree = "<group>"; };
+		AC63E8A61C57932000D4C116 /* CTRandomColorsSliderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CTRandomColorsSliderTableViewCell.swift; sourceTree = "<group>"; };
+		AC63E8A81C57989B00D4C116 /* GradientSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +77,8 @@
 			children = (
 				AC63E88C1C55267000D4C116 /* AppDelegate.swift */,
 				AC63E8901C55267000D4C116 /* Main.storyboard */,
-				AC63E8A21C56864800D4C116 /* CTRandomColorsTableViewCell.swift */,
+				AC63E8A81C57989B00D4C116 /* GradientSlider.swift */,
+				AC63E8A61C57932000D4C116 /* CTRandomColorsSliderTableViewCell.swift */,
 				AC63E8A01C566E2B00D4C116 /* String+Name.swift */,
 				AC63E89E1C5658EE00D4C116 /* CTRandomColorsViewController.swift */,
 				AC63E8931C55267000D4C116 /* Assets.xcassets */,
@@ -217,10 +220,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC63E8A31C56864800D4C116 /* CTRandomColorsTableViewCell.swift in Sources */,
+				AC63E8A71C57932000D4C116 /* CTRandomColorsSliderTableViewCell.swift in Sources */,
 				AC63E8A11C566E2B00D4C116 /* String+Name.swift in Sources */,
 				AC63E89F1C5658EE00D4C116 /* CTRandomColorsViewController.swift in Sources */,
 				AC63E88D1C55267000D4C116 /* AppDelegate.swift in Sources */,
+				AC63E8A91C57989B00D4C116 /* GradientSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,19 @@ class CTRandomColorsTableViewController: UITableViewController {
     
     var storedOffsets = [Int: CGFloat]()
     
+    private var sliderValue: Int = 0 {
+        willSet {
+            randomColors![9] = randomColorsCount(10, hue: .Value(Int(newValue)), luminosity: .Bright)
+            tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 9)], withRowAnimation: .None)
+        }
+    }
+    
+    private var luminosity: Luminosity = .Bright {
+        didSet {
+            self.refreshColors()
+        }
+    }
+    
     func hueFromInt(i: Int) -> Hue {
         switch i {
         case 0:
@@ -38,7 +51,7 @@ class CTRandomColorsTableViewController: UITableViewController {
         case 8:
             return Hue.Random
         default:
-            return Hue.Value(0)
+            return Hue.Value(sliderValue)
         }
     }
     
@@ -51,31 +64,72 @@ class CTRandomColorsTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
+    @IBAction func toggleLuminosity(sender: UIBarButtonItem) {
+        if luminosity == .Bright {
+            luminosity = .Dark
+            sender.image = UIImage(named: "dark-selected")
+        } else {
+            luminosity = .Bright
+            sender.image = UIImage(named: "dark")
+        }
+    }
+    
     func addColors() {
         randomColors = []
-        for i in 0...8 {
-            randomColors?.append(randomColorsCount(10, hue: hueFromInt(i), luminosity: .Bright))
+        for i in 0...9 {
+            randomColors?.append(randomColorsCount(10, hue: hueFromInt(i), luminosity: luminosity))
         }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 8
+        return 10
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 9 {
+            return "Custom Color"
+        }
         return String(hueFromInt(section))
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section == 9 {
+            return 2
+        } else {
+            return 1
+        }
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 86
+        if indexPath.section == 9 && indexPath.row == 0 {
+             return 48
+        } else {
+            return 86
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("RowCell") as! CTRandomColorsTableViewCell
+        var cell: UITableViewCell!
+        if indexPath.section == 9 {
+            if indexPath.row == 0 {
+                cell = tableView.dequeueReusableCellWithIdentifier("SliderCell")
+                let slider = cell.viewWithTag(1) as! GradientSlider
+                slider.thumbColor = UIColor(hue: CGFloat(sliderValue)/360, saturation: 1, brightness: 1, alpha: 1)
+                slider.actionBlock = { slider, value in
+                    self.sliderValue = Int(value)
+                    
+                    CATransaction.begin()
+                    CATransaction.setValue(true, forKey: kCATransactionDisableActions)
+                    slider.thumbColor = UIColor(hue: value/360, saturation: 1, brightness: 1, alpha: 1)
+                    
+                    CATransaction.commit()
+                }
+            } else {
+                cell = tableView.dequeueReusableCellWithIdentifier("RowCell") as! CTRandomColorsTableViewCell
+            }
+        } else {
+            cell = tableView.dequeueReusableCellWithIdentifier("RowCell") as! CTRandomColorsTableViewCell
+        }
         return cell
     }
     
